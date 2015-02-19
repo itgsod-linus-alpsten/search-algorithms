@@ -9,12 +9,12 @@ end
 
 
 list = [0,1,2,3,4,5,6,7,8,9]
-list_string = %w(a b c d e f g)
+#list_string = %w(a b c d e f g)
 
-p binary_search(list_string, gets.chomp)
+#p binary_search(list_string, gets.chomp)
 
-#i = 0
-#list.length.times do
-#  p binary_search(list_string, i)
-#  i += 1
-#end
+i = 0
+list.length.times do
+  p binary_search(list_string, i)
+  i += 1
+end
