@@ -1,2 +1,3 @@
-a = (0..3).to_a
-p a.length
+a = 10
+a /= 2
+puts a

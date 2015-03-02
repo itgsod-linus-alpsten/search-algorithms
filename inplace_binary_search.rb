@@ -1,21 +1,26 @@
-def binary_search(array, value)
-  i = array.length / 2
-  return array[i] if value == array[i]
-  return "'#{value}' not found" if value.class != Fixnum && value.class != Float || array.length < 2
-  return binary_search(array[i..-1], value) if value > array[i]
-  return binary_search(array[0...i], value)
-end
-
-tests = "gets"
-n = 100
-list = (0..n).to_a
-list.delete(50)
-
-if tests == "all"
-  list.length.times do
-    p binary_search(list, n)
-    n -= 1
+def binary_search(array, search_value)
+  i = array.length.to_f / 2 - 1
+  return "not found" if search_value < array.first || search_value > array.last
+  index_value = array.length.to_f / 4 + 0.5
+  until search_value == array[i]
+    return "not found" if index_value == 0
+    if search_value > array[i]
+      i += index_value
+    else
+      i -= index_value
+    end
+    index_value /= 2
   end
-elsif tests == "gets"
-  p binary_search(list, gets.to_i)
+  return array[i]
 end
+
+n = 10
+a = 0
+array = (0..n).to_a
+
+array.length.times do
+  p binary_search(array, a)
+  a += 1
+end
+
+#p binary_search(array, rand(0..50))
